@@ -22,6 +22,6 @@
 
 module top(input clk, rst, output SYNC, SCLK, D0, D1);
 
-spi spi_manager (.clk(clk), .rst(rst), .SYNC(SYNC), .D0(D0), .D1(D1));
+
 
 endmodule
