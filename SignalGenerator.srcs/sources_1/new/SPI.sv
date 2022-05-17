@@ -20,8 +20,5 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module SPI(
-    input twoja,
-    output stara
-    );
+module SPI(input clk, rst, output SYNC, SCLK, D0, D1);
 endmodule
