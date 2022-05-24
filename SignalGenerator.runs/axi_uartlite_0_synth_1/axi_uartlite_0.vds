@@ -1,0 +1,408 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue May 24 18:23:17 2022
+# Process ID: 25010
+# Current directory: /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1
+# Command line: vivado -log axi_uartlite_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source axi_uartlite_0.tcl
+# Log file: /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/axi_uartlite_0.vds
+# Journal file: /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source axi_uartlite_0.tcl -notrace
+Command: synth_design -top axi_uartlite_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 25045
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2330.441 ; gain = 0.000 ; free physical = 6752 ; free virtual = 12182
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'axi_uartlite_0' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:86]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_BAUDRATE bound to: 9600 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'axi_uartlite' declared at '/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:2128' bound to instance 'U0' of component 'axi_uartlite' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'axi_uartlite' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:2190]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_BAUDRATE bound to: 9600 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'uartlite_core' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:1650]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_S_AXI_ACLK_FREQ_HZ bound to: 100000000 - type: integer 
+	Parameter C_BAUDRATE bound to: 9600 - type: integer 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'baudrate' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:1453]
+	Parameter C_RATIO bound to: 651 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'baudrate' (1#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:1453]
+INFO: [Synth 8-638] synthesizing module 'uartlite_rx' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:927]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:106]
+	Parameter C_CDC_TYPE bound to: 1 - type: integer 
+	Parameter C_RESET_STATE bound to: 0 - type: integer 
+	Parameter C_SINGLE_BIT bound to: 1 - type: integer 
+	Parameter C_FLOP_INPUT bound to: 0 - type: integer 
+	Parameter C_VECTOR_WIDTH bound to: 32 - type: integer 
+	Parameter C_MTBF_STAGES bound to: 4 - type: integer 
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:514]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:545]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:554]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:564]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:574]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6' to cell 'FDR' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:584]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (2#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_f' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'srl_fifo_rbu_f' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'cntr_incr_decr_addn_f' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+	Parameter C_SIZE bound to: 5 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'cntr_incr_decr_addn_f' (3#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'dynshreg_f' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+	Parameter C_DEPTH bound to: 16 - type: integer 
+	Parameter C_DWIDTH bound to: 8 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-256] done synthesizing module 'dynshreg_f' (4#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:397]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_rbu_f' (5#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:697]
+INFO: [Synth 8-256] done synthesizing module 'srl_fifo_f' (6#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/lib_srl_fifo_v1_0_rfs.vhd:1000]
+INFO: [Synth 8-256] done synthesizing module 'uartlite_rx' (7#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:927]
+INFO: [Synth 8-638] synthesizing module 'uartlite_tx' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:408]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_DATA_BITS bound to: 8 - type: integer 
+	Parameter C_USE_PARITY bound to: 0 - type: integer 
+	Parameter C_ODD_PARITY bound to: 0 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'uartlite_tx' (8#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:408]
+INFO: [Synth 8-256] done synthesizing module 'uartlite_core' (9#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:1650]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 32'b00000000000000000000000000001111 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 0 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_IPIF_ABUS_WIDTH bound to: 4 - type: integer 
+	Parameter C_IPIF_DBUS_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 15 - type: integer 
+	Parameter C_USE_WSTRB bound to: 0 - type: integer 
+	Parameter C_DPHASE_TIMEOUT bound to: 0 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+	Parameter C_BUS_AWIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_MIN_SIZE bound to: 15 - type: integer 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001111 
+	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000100 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b00 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (10#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b01 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (10#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b10 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (10#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+	Parameter C_AB bound to: 2 - type: integer 
+	Parameter C_AW bound to: 2 - type: integer 
+	Parameter C_BAR bound to: 2'b11 
+	Parameter C_FAMILY bound to: nofamily - type: string 
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (10#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (11#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-226] default block is never used [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2550]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (12#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (13#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-256] done synthesizing module 'axi_uartlite' (14#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/hdl/axi_uartlite_v2_0_vh_rfs.vhd:2190]
+INFO: [Synth 8-256] done synthesizing module 'axi_uartlite_0' (15#1) [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/synth/axi_uartlite_0.vhd:86]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2330.441 ; gain = 0.000 ; free physical = 7536 ; free virtual = 12967
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2330.441 ; gain = 0.000 ; free physical = 7531 ; free virtual = 12962
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2330.441 ; gain = 0.000 ; free physical = 7531 ; free virtual = 12962
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2330.441 ; gain = 0.000 ; free physical = 7527 ; free virtual = 12958
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc] for cell 'U0'
+Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc] for cell 'U0'
+Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2378.367 ; gain = 0.000 ; free physical = 7444 ; free virtual = 12875
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  FDR => FDRE: 6 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2378.367 ; gain = 0.000 ; free physical = 7444 ; free virtual = 12875
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7511 ; free virtual = 12942
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7511 ; free virtual = 12942
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7511 ; free virtual = 12942
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave_attachment'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 sm_idle |                             0010 |                               00
+                 sm_read |                             1000 |                               01
+                sm_write |                             0100 |                               10
+                 sm_resp |                             0001 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7502 ; free virtual = 12934
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   10 Bit       Adders := 1     
+	   3 Input    5 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 46    
++---Muxes : 
+	   2 Input    8 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 6     
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 112   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7491 ; free virtual = 12926
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7367 ; free virtual = 12803
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7365 ; free virtual = 12800
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name  | RTL Name                                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|axi_uartlite | UARTLITE_CORE_I/UARTLITE_RX_I/data_shift_reg[15] | 16     | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|axi_uartlite | UARTLITE_CORE_I/UARTLITE_TX_I/data_shift_reg[15] | 15     | 1     | YES          | NO                 | YES               | 1      | 0       | 
++-------------+--------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+
+Dynamic Shift Register Report:
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name                  | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | INFERRED_GEN.data_reg[15] | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
++------------+---------------------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |LUT1   |     1|
+|2     |LUT2   |    14|
+|3     |LUT3   |    11|
+|4     |LUT4   |    27|
+|5     |LUT5   |    23|
+|6     |LUT6   |    34|
+|7     |MUXF7  |     1|
+|8     |SRL16E |    18|
+|9     |FDR    |     4|
+|10    |FDRE   |    92|
+|11    |FDSE   |    18|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7366 ; free virtual = 12801
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2378.367 ; gain = 0.000 ; free physical = 7420 ; free virtual = 12855
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2378.367 ; gain = 47.926 ; free physical = 7420 ; free virtual = 12855
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2378.367 ; gain = 0.000 ; free physical = 7414 ; free virtual = 12849
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2378.367 ; gain = 0.000 ; free physical = 7445 ; free virtual = 12881
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  FDR => FDRE: 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+62 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:21 . Memory (MB): peak = 2378.367 ; gain = 48.023 ; free physical = 7589 ; free virtual = 13024
+INFO: [Common 17-1381] The checkpoint '/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/axi_uartlite_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP axi_uartlite_0, cache-ID = f58392cf83bf2ac6
+INFO: [Coretcl 2-1174] Renamed 19 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/axi_uartlite_0_synth_1/axi_uartlite_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file axi_uartlite_0_utilization_synth.rpt -pb axi_uartlite_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue May 24 18:23:47 2022...

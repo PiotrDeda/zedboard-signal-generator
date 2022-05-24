@@ -13,7 +13,11 @@ set_property src_info {type:XDC file:1 line:17 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN P16 [get_ports {en}];  # "BTNC"
 set_property src_info {type:XDC file:1 line:18 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN R16 [get_ports {rst}];  # "BTND"
-set_property src_info {type:XDC file:1 line:38 export:INPUT save:INPUT read:READ} [current_design]
+set_property src_info {type:XDC file:1 line:23 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN V10 [get_ports {tx}];  # "JB3"
+set_property src_info {type:XDC file:1 line:24 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN W8 [get_ports {rx}];  # "JB4"
+set_property src_info {type:XDC file:1 line:44 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS18 [get_ports -of_objects [get_iobanks 34]];
-set_property src_info {type:XDC file:1 line:41 export:INPUT save:INPUT read:READ} [current_design]
+set_property src_info {type:XDC file:1 line:47 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS33 [get_ports -of_objects [get_iobanks 13]];

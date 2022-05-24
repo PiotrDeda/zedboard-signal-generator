@@ -14,8 +14,14 @@ set_property PACKAGE_PIN AA9  [get_ports {SCLK}];  # "JA4"
 # ----------------------------------------------------------------------------
 # User Push Buttons - Bank 34
 # ---------------------------------------------------------------------------- 
-set_property PACKAGE_PIN P16 [get_ports {en}];  # "BTNC"
+#set_property PACKAGE_PIN P16 [get_ports {en}];  # "BTNC"
 set_property PACKAGE_PIN R16 [get_ports {rst}];  # "BTND"
+
+# ----------------------------------------------------------------------------
+# JB Pmod - Bank 13
+# ---------------------------------------------------------------------------- 
+set_property PACKAGE_PIN V10 [get_ports {tx}];  # "JB3"
+set_property PACKAGE_PIN W8 [get_ports {rx}];  # "JB4"
 
 # ----------------------------------------------------------------------------
 # IOSTANDARD Constraints

@@ -78,6 +78,7 @@ create_project -in_memory -part xc7z020clg484-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.cache/wt [current_project]
 set_property parent.project_path /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
@@ -88,10 +89,16 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/debouncer.sv
+  /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/clock_divider.sv
+  /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/master_axi.sv
   /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/spi.sv
   /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv
 }
+read_ip -quiet /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xci
+set_property used_in_implementation false [get_files -all /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
