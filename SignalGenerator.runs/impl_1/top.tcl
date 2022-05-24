@@ -138,6 +138,7 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.runs/synth_1/top.dcp
+  read_ip -quiet /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/ip/axi_uartlite_0/axi_uartlite_0.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/constrs_1/new/io.xdc
   read_xdc /home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/constrs_1/new/timing.xdc

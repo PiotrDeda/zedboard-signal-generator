@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Tue May 24 17:52:25 2022
+| Date         : Tue May 24 19:16:18 2022
 | Host         : stud209-5 running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,28 +23,39 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 5
-+-----------+----------+-------------------------------+------------+
-| Rule      | Severity | Description                   | Violations |
-+-----------+----------+-------------------------------+------------+
-| TIMING-18 | Warning  | Missing input or output delay | 5          |
-+-----------+----------+-------------------------------+------------+
+             Violations found: 7
++-----------+------------------+-------------------------------+------------+
+| Rule      | Severity         | Description                   | Violations |
++-----------+------------------+-------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 2          |
+| TIMING-18 | Warning          | Missing input or output delay | 5          |
++-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-TIMING-18#1 Warning
-Missing input or output delay  
-An input delay is missing on en relative to clock(s) clk100MHz
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin data_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
-TIMING-18#2 Warning
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin en_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-18#1 Warning
 Missing input or output delay  
 An input delay is missing on rst relative to clock(s) clk100MHz
 Related violations: <none>
 
-TIMING-18#3 Warning
+TIMING-18#2 Warning
 Missing input or output delay  
 An output delay is missing on D0 relative to clock(s) clk100MHz
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on D1 relative to clock(s) clk100MHz
 Related violations: <none>
 
 TIMING-18#4 Warning

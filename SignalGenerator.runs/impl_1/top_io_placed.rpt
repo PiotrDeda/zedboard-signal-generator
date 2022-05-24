@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date                      : Tue May 24 17:52:11 2022
+| Date                      : Tue May 24 19:16:05 2022
 | Host                      : stud209-5 running 64-bit Ubuntu 18.04.3 LTS
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|             7 |
+|             6 |
 +---------------+
 
 
@@ -380,7 +380,7 @@ Table of Contents
 | P13        |             |            | VCCINT                  | VCCINT      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P14        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | P15        |             | High Range | IO_L19N_T3_VREF_34      | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| P16        | en          | High Range | IO_L24P_T3_34           | INPUT       | LVCMOS18    |      34 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| P16        |             | High Range | IO_L24P_T3_34           | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P17        |             | High Range | IO_L20P_T3_34           | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P18        |             | High Range | IO_L20N_T3_34           | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P19        |             | High Range | VCCO_34                 | VCCO        |             |      34 |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
