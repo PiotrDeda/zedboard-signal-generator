@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:20:35
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sim_1/new/tb.sv,1653407014,systemVerilog,,,,tb,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/spi.sv,1653406806,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv,,spi,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv,1653406824,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sim_1/new/tb.sv,,top,,uvm,,,,,,

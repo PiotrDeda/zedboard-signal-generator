@@ -20,11 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module spi #(parameter bits = 8) (
-    input clk, rst, en, miso, clr_ctrl,
+module spi #(parameter bits = 16) (
+    input clk, rst, en,
     input [bits-1:0] data2trans,
-    output clr, ss, sclk, mosi,
-    output reg [bits-1:0] data_rec
+    output ss, sclk, mosi
 );
 
 //Parametry czasu trwania:
@@ -36,15 +35,13 @@ module spi #(parameter bits = 8) (
 localparam m = 7, d = 2, bm = $clog2(m), bdcnt = $clog2(bits);
 
 //kodowanie stanów
-localparam idle = 2'b00, shdown = 2'b01, progr = 2'b10, start = 2'b11;
+typedef enum {idle, progr, start} e_st;
+e_st st, nst;
 
-/*fsm_encoding = "user"*/
-reg [1:0] st, nst;
-
-reg [bits-1:0] shr; //rejestr przesuwny
-reg [bm-1:0] cnt; //licznik czasu trwania stanów
-reg [bdcnt:0] dcnt; //licznik bitów transmitowanych
-reg tmp, tm, cnten;
+logic [bits-1:0] shr;   //rejestr przesuwny
+logic [bm-1:0] cnt;     //licznik czasu trwania stanów
+logic [bdcnt:0] dcnt;   //licznik bitów transmitowanych
+logic tmp, tm, cnten;
 
 //rejestr stanu
 always @(posedge clk, posedge rst)
@@ -60,9 +57,8 @@ always @* begin
     case(st)
         idle: begin
             cnten = 1'b0;
-            nst = en ? (clr_ctrl ? shdown : start) : idle;
+            nst = en ? start : idle;
         end
-        shdown: nst = (cnt == m-1) ? start : shdown;
         start: nst = (cnt == d) ? progr : start;
         progr: nst = (dcnt == {(bdcnt+1){1'd0}}) ? idle : progr;
     endcase
@@ -73,11 +69,12 @@ always @(posedge clk, posedge rst)
     if(rst)
        cnt <= {bm{1'b0}};
     else if(cnten)
-        if(cnt == m | dcnt == {(bdcnt+1){1'd0}}) cnt <= {bm{1'b0}};
-        else cnt <= cnt + 1'b1;
+        if(cnt == m | dcnt == {(bdcnt+1){1'd0}})
+            cnt <= {bm{1'b0}};
+        else
+            cnt <= cnt + 1'b1;
 
 //logika sygnałów wyjściowych
-assign clr = (st == shdown) ? 1'b1 : 1'b0;
 assign ss = ((st == start) | (st == progr)) ? 1'b0 : 1'b1;
 assign sclk = ((st == progr) & (cnt < (m/2 + 1))) ? 1'b1 : 1'b0;
 
@@ -95,8 +92,8 @@ always @(posedge clk, posedge rst)
         dcnt <= bits;
     else if(spi_en)
         dcnt <= dcnt - 1'b1;
-    else
-        if(en & dcnt == {(bdcnt+1){1'd0}}) dcnt <= bits;
+    else if(en & dcnt == {(bdcnt+1){1'd0}})
+        dcnt <= bits;
 
 //rejestr przesuwny
 assign mosi = shr[bits-1];
@@ -106,7 +103,7 @@ always @(posedge clk, posedge rst)
     else if(en)
         shr <= data2trans;
     else if(spi_en)
-        shr <= {shr[bits-2:0],miso};
+        shr <= {shr[bits-2:0],1'b0};
 
 //generator zezwolenia zapisu na wyjście
 always @(posedge clk, posedge rst)
@@ -115,12 +112,5 @@ always @(posedge clk, posedge rst)
     else
         tm <= ss;
 assign en_out = ss & ~tm;
-
-//rejestr wyjściowy
-always @(posedge clk, posedge rst)
-    if(rst)
-        data_rec <= {bits{1'b0}};
-    else if(en_out)
-        data_rec <= shr;
 
 endmodule
