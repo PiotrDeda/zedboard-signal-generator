@@ -20,18 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module top #(parameter bits = 16, deep = 8) (input clk, rst, output SYNC, SCLK, D0, D1);
+module top #(parameter bits = 16, deep = 8) (input clk, rst, output SYNC, SCLK, D0, D1, SYNC2);
 
 localparam nb = $clog2(deep);
 logic en;
+logic [bits-1:0] data;
 
-wire [3 : 0] s_axi_awaddr;
-wire [31 : 0] s_axi_wdata;
-wire [3 : 0] s_axi_wstrb = 4'b1111;
-wire [1 : 0] s_axi_bresp;
-wire [3 : 0] s_axi_araddr;
-wire [31 : 0] s_axi_rdata;
-wire [1 : 0] s_axi_rresp;
+wire [3:0] s_axi_awaddr;
+wire [31:0] s_axi_wdata;
+wire [3:0] s_axi_wstrb = 4'b1111;
+wire [1:0] s_axi_bresp;
+wire [3:0] s_axi_araddr;
+wire [31:0] s_axi_rdata;
+wire [1:0] s_axi_rresp;
 
 wire [7:0] data_tr, data_rec;
 wire [nb-1:0] addr;
@@ -79,13 +80,12 @@ master_axi #(.deep(deep)) master (.clk(clk), .rst(rst),
 .data_rec(data_rec), .data_tr(data_tr), .mem_addr(addr), .wr(wr), .rd(rd));
 
 
-//pami??
-//memory #(.deep(deep)) storage (.clk(clk), .rd(rd), .wr(wr), 
-//    .addr(addr), .data_in(data_rec), .data_out(data_tr));
+//pamięć
+decoder command_decoder (.clk(clk), .rst(rst), .data_rec(data_rec), .select(select));
+memory #(.bits(bits)) storage (.clk(clk), .rst(rst), .select(select), .data(data));
 
-
-logic [bits-1:0] data = 16'b0000_0000_1000_0000;
 assign D1 = D0;
+assign SYNC2 = SYNC;
 //debouncer deb (.clk(clk), .button_in(en), .button_db(en_deb));
 
 spi #(.bits(bits)) spiToPmod (
@@ -94,23 +94,23 @@ spi #(.bits(bits)) spiToPmod (
     .ss(SYNC), .sclk(SCLK), .mosi(D0)
 );
 
-clock_divider #(.div(50)) clkdiv (.clk(clk), .rst(rst), .clkslow(clkslow));
+clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .clkslow(clkslow));
 
 always @(posedge clkslow, posedge rst)
     if(rst)
         data <= 16'b0000_0000_0000_0000;
-    else if(data[7] == 1)
+    else if(data == 16'b0000_0000_1111_1111)
         data <= 16'b0000_0000_0000_0000;
-    else 
-        data <= 16'b0000_0000_1000_0000;
+    else
+        data <= data + 1'b1;
         
-always @(posedge clkslow, posedge rst)
+always @(posedge clk, posedge rst)
     if(rst)
         en <= 1'b0;
     else if (en == 1)
-        en <= 0;
-    else
-        en <= 1;
+        en <= 1'b0;
+    else if (clkslow == 1)
+        en <= 1'b1;
         
 
 endmodule
