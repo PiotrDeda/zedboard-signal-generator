@@ -78,15 +78,14 @@ master_axi #(.deep(deep)) master (.clk(clk), .rst(rst),
 .bresp(s_axi_bresp), .bvld(s_axi_bvalid), .brdy(s_axi_bready), 
 .aradr(s_axi_araddr), .arvld(s_axi_arvalid), .arrdy(s_axi_arready),  //AR channel
 .rdata(s_axi_rdata), .rvld(s_axi_rvalid), .rrdy(s_axi_rready), 
-.data_rec(data_rec), .data_tr(data_tr), .mem_addr(addr), .wr(wr), .rd(rd));
+.data_rec(data_rec), .data_tr(data_tr), .mem_addr(addr), .wr(wr), .rd(rd),
+.select(select));
 
 
 //pamięć
-decoder command_decoder (.clk(clk), .rst(rst), .data_rec(data_rec), .select(select));
 memory #(.bits(bits)) storage (.clk(clkslow), .rst(rst), .select(select), .data(data));
 
 assign D1 = D0;
-//debouncer deb (.clk(clk), .button_in(en), .button_db(en_deb));
 
 spi #(.bits(bits)) spiToPmod (
     .clk(clk), .rst(rst), .en(en),

@@ -15,7 +15,8 @@ module master_axi #(parameter deep = 16, nb = $clog2(deep)) (input clk, rst,
     output logic [3:0] aradr, output logic arvld, input arrdy,  //AR channel
     input [31:0] rdata, input rvld, output logic rrdy,
     output logic [7:0] data_rec, input [7:0] data_tr, output [nb-1:0] mem_addr,
-    output logic wr, rd
+    output logic wr, rd,
+    output logic [1:0] select
     );
 
 //deklaracja stan�w     
@@ -70,7 +71,7 @@ always @(posedge clk)   //, posedge rst)
         {rec_trn, cmdm} <= 2'b11;
         maxd <= rdata[5:0];
         case(rdata[7:6])
-            2'b10: cmdm <= (rdata[5:0] == 6'b0) ? 1'b1 : 1'b0;
+            2'b10: {cmdm,select} <= {(rdata[5:0] == 6'b0) ? 1'b1 : 1'b0, rdata[1:0]};
             2'b11: rec_trn <= 1'b0;
         endcase
     end else
@@ -111,7 +112,7 @@ always @(posedge clk, posedge rst)
 always @(posedge clk, posedge rst)
     if(rst)
         rrdy <= 1'b0;
-    else if ( (st == waitstatus | st == waitread) & rvld)
+    else if ((st == waitstatus | st == waitread) & rvld)
         rrdy <= 1'b1;   
     else
         rrdy <= 1'b0;           
