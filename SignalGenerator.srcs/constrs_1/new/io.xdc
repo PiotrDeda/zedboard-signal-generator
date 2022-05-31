@@ -20,7 +20,7 @@ set_property PACKAGE_PIN R16 [get_ports {rst}];  # "BTND"
 # ----------------------------------------------------------------------------
 # JB Pmod - Bank 13
 # ---------------------------------------------------------------------------- 
-set_property PACKAGE_PIN V10 [get_ports {SYNC2}];  # "JB3" #tx
+set_property PACKAGE_PIN V10 [get_ports {tx}];  # "JB3"
 set_property PACKAGE_PIN W8 [get_ports {rx}];  # "JB4"
 
 # ----------------------------------------------------------------------------

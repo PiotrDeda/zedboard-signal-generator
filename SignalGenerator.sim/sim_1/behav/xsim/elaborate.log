@@ -1,0 +1,55 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /local/home/cadmgr/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4abf4e78fb8d431d943cced09c98ae0f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_lite_ipif_v3_0_4 -L lib_pkg_v1_0_2 -L lib_srl_fifo_v1_0_2 -L lib_cdc_v1_0_2 -L axi_uartlite_v2_0_26 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'select' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv:84]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'select' [/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv:85]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package axi_lite_ipif_v3_0_4.ipif_pkg
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package lib_pkg_v1_0_2.lib_pkg
+Compiling architecture rtl of entity axi_uartlite_v2_0_26.baudrate [\baudrate(c_ratio=651)\]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fdr_v of entity unisim.FDR [fdr_default]
+Compiling architecture implementation of entity lib_cdc_v1_0_2.cdc_sync [\cdc_sync(c_mtbf_stages=4)\]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.cntr_incr_decr_addn_f [\cntr_incr_decr_addn_f(c_size=5,...]
+Compiling architecture behavioral of entity lib_srl_fifo_v1_0_2.dynshreg_f [\dynshreg_f(c_depth=16,c_dwidth=...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_rbu_f [\srl_fifo_rbu_f(c_dwidth=8,c_fam...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_f [\srl_fifo_f(c_dwidth=8,c_family=...]
+Compiling architecture rtl of entity axi_uartlite_v2_0_26.uartlite_rx [\uartlite_rx(c_family="zynq")(1,...]
+Compiling architecture rtl of entity axi_uartlite_v2_0_26.uartlite_tx [\uartlite_tx(c_family="zynq")(1,...]
+Compiling architecture rtl of entity axi_uartlite_v2_0_26.uartlite_core [\uartlite_core(c_family="zynq")(...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=2,c_aw=2,c_bar="...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=2,c_aw=2,c_bar="...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=2,c_aw=2,c_bar="...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.pselect_f [\pselect_f(c_ab=2,c_aw=2,c_bar="...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.address_decoder [\address_decoder(c_bus_awidth=4,...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.slave_attachment [\slave_attachment(c_ard_addr_ran...]
+Compiling architecture imp of entity axi_lite_ipif_v3_0_4.axi_lite_ipif [\axi_lite_ipif(c_s_axi_addr_widt...]
+Compiling architecture rtl of entity axi_uartlite_v2_0_26.axi_uartlite [\axi_uartlite(c_family="zynq")(1...]
+Compiling architecture axi_uartlite_0_arch of entity xil_defaultlib.axi_uartlite_0 [axi_uartlite_0_default]
+Compiling module xil_defaultlib.master_axi(deep=8)
+Compiling module xil_defaultlib.decoder
+Compiling module xil_defaultlib.memory_default
+Compiling module xil_defaultlib.spi_default
+Compiling module xil_defaultlib.clock_divider(div=250)
+Compiling module xil_defaultlib.top_default
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav

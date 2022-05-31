@@ -22,9 +22,9 @@
 
 module tb();
 
-logic clk, rst, SYNC, SCLK, D0, D1;
+logic clk, rst, rx, SYNC, SCLK, D0, D1, tx;
 
-top uut (.clk(clk), .rst(rst), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1));
+top uut (.clk(clk), .rst(rst), .rx(rx), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1), .tx(tx));
 
 initial
 begin

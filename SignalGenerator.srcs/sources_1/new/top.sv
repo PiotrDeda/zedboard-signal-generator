@@ -20,11 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module top #(parameter bits = 16, deep = 8) (input clk, rst, output SYNC, SCLK, D0, D1, SYNC2);
+module top #(parameter bits = 16, deep = 8) (input clk, rst, rx, output SYNC, SCLK, D0, D1, tx);
 
 localparam nb = $clog2(deep);
 logic en;
 logic [bits-1:0] data;
+logic [1:0] select;
 
 wire [3:0] s_axi_awaddr;
 wire [31:0] s_axi_wdata;
@@ -82,10 +83,9 @@ master_axi #(.deep(deep)) master (.clk(clk), .rst(rst),
 
 //pamięć
 decoder command_decoder (.clk(clk), .rst(rst), .data_rec(data_rec), .select(select));
-memory #(.bits(bits)) storage (.clk(clk), .rst(rst), .select(select), .data(data));
+memory #(.bits(bits)) storage (.clk(clkslow), .rst(rst), .select(select), .data(data));
 
 assign D1 = D0;
-assign SYNC2 = SYNC;
 //debouncer deb (.clk(clk), .button_in(en), .button_db(en_deb));
 
 spi #(.bits(bits)) spiToPmod (
@@ -95,14 +95,6 @@ spi #(.bits(bits)) spiToPmod (
 );
 
 clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .clkslow(clkslow));
-
-always @(posedge clkslow, posedge rst)
-    if(rst)
-        data <= 16'b0000_0000_0000_0000;
-    else if(data == 16'b0000_0000_1111_1111)
-        data <= 16'b0000_0000_0000_0000;
-    else
-        data <= data + 1'b1;
         
 always @(posedge clk, posedge rst)
     if(rst)
@@ -111,6 +103,5 @@ always @(posedge clk, posedge rst)
         en <= 1'b0;
     else if (clkslow == 1)
         en <= 1'b1;
-        
 
 endmodule

@@ -20,8 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module decoder(input clk, rst, input [7:0] data_rec, output [1:0] select);
+module decoder(input clk, rst, input [7:0] data_rec, output logic [1:0] select);
 
-assign select = 2'b00;
+always @(posedge clk)
+    select <= 2'b11;
 
 endmodule

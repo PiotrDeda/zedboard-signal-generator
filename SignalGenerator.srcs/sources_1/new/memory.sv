@@ -13,20 +13,34 @@ module memory #(parameter bits = 16, deep = 200) (input clk, rst, input [1:0] se
 localparam nb = $clog2(deep);
 logic [nb-1:0] cnt;
 
-//deklaracja pami?ci 
-(*ram_style = "block"*) reg [bits-1:0] mem [1:deep];
-//inicjalizacja pami?ci
-initial $readmemh("sin.mem", mem);
+(*ram_style = "block"*) reg [bits-1:0] mem_sin [1:deep];
+initial $readmemh("sin.mem", mem_sin);
+
+(*ram_style = "block"*) reg [bits-1:0] mem_saw [1:deep];
+initial $readmemh("saw.mem", mem_saw);
+
+(*ram_style = "block"*) reg [bits-1:0] mem_tri [1:deep];
+initial $readmemh("tri.mem", mem_tri);
+
+(*ram_style = "block"*) reg [bits-1:0] mem_exp [1:deep];
+initial $readmemh("exp.mem", mem_exp);
 
 always @(posedge clk, posedge rst)
     if(rst)
-        cnt <= 1'b0;
+        cnt <= 1'b1;
     else if (cnt == deep)
-        cnt <= 1'b0;
+        cnt <= 1'b1;
     else
         cnt <= cnt + 1'b1;
 
 always @(posedge clk)
-    data <= mem[cnt];
+    if (select == 2'b00)
+        data <= mem_saw[cnt];
+    else if (select == 2'b01)
+        data <= mem_tri[cnt];
+    else if (select == 2'b10)
+        data <= mem_sin[cnt];
+    else
+        data <= mem_exp[cnt];
 
 endmodule
