@@ -18,10 +18,10 @@ module master_axi #(parameter deep = 16, nb = $clog2(deep)) (input clk, rst,
     output logic wr, rd
     );
 
-//deklaracja stanów     
+//deklaracja stanï¿½w     
 typedef enum {readstatus, waitstatus, read, waitread, command, write, waitwrite, waitresp} states_e;
 states_e st, nst;
-//znacznik kierunku transmisji "1" - odbiór, "0" - nadawanie
+//znacznik kierunku transmisji "1" - odbiï¿½r, "0" - nadawanie
 logic rec_trn;
 //znacznik komendy "1" - komenda, "0" - dane
 logic cmdm;
@@ -35,7 +35,7 @@ wire rfifo_valid = ((st == waitstatus) & rvld) ? rdata[0] : 1'b0;
 //znacznik zape?nienia kolejki wyj?ciowej
 wire tfifo_full = ((st == waitstatus) & rvld) ? rdata[3] : 1'b0;
 
-//rejestr stanów
+//rejestr stanï¿½w
 always @(posedge clk, posedge rst)
     if(rst)
         st <= readstatus;
@@ -82,7 +82,7 @@ always @(posedge clk)   //, posedge rst)
 wire incar = ((st == waitread) & ~cmdm & rvld & rec_trn & (maddr < maxd));
 //warunek ikrementacji adrresu w czasie wysy?ania 
 wire incat = ((st == waitwrite) & cmdm & wrdy & ~rec_trn & (maddr < maxd));
-//w czasie nadawania adres musi byc o 1 wi?kszy
+//w czasie nadawania adres musi byc o 1 wi?kszydata_rec
 assign mem_addr = rec_trn ? maddr : (maddr + 1);
 always @(posedge clk)   //, posedge rst)
     if(rst)
