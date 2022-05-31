@@ -16,7 +16,7 @@ logic [nb-1:0] cnt;
 //deklaracja pami?ci 
 (*ram_style = "block"*) reg [bits-1:0] mem [1:deep];
 //inicjalizacja pami?ci
-initial $readmemh("init_mem.mem", mem);
+initial $readmemh("sin.mem", mem);
 
 always @(posedge clk, posedge rst)
     if(rst)
