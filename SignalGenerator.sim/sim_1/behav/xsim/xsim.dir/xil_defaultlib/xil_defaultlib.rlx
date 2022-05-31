@@ -1,0 +1,11 @@
+0.7
+2020.2
+Nov 18 2020
+09:20:35
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.gen/sources_1/ip/axi_uartlite_0/sim/axi_uartlite_0.vhd,1653409395,vhdl,,,,axi_uartlite_0,,,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sim_1/new/tb.sv,1654007851,systemVerilog,,,,tb,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/clock_divider.sv,1653411977,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/master_axi.sv,,clock_divider,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/master_axi.sv,1652795538,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/spi.sv,,master_axi,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/spi.sv,1653406806,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv,,spi,,uvm,,,,,,
+/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sources_1/new/top.sv,1654008094,systemVerilog,,/home/stud2019/9deda/Desktop/SignalGenerator/SignalGenerator.srcs/sim_1/new/tb.sv,,top,,uvm,,,,,,

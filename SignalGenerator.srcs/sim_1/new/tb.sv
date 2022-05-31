@@ -22,9 +22,9 @@
 
 module tb();
 
-logic clk, rst, en, SYNC, SCLK, D0, D1;
+logic clk, rst, SYNC, SCLK, D0, D1;
 
-top uut (.clk(clk), .rst(rst), .en(en), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1));
+top uut (.clk(clk), .rst(rst), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1));
 
 initial
 begin
@@ -41,14 +41,7 @@ end
 
 initial
 begin
-    en = 1'b0;
-    @(posedge clk) en = 1'b1;
-    @(posedge clk) en = 1'b0;
-end
-
-initial
-begin
-    repeat (200) @(posedge clk);
+    repeat (5000) @(posedge clk);
     $finish;
 end
 

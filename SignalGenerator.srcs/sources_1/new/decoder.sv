@@ -20,30 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module decoder(
-    input clk, rst, rd,
-    output logic en
-    );
-    
-    logic en_rd, en_off;
-    
-    
-    always @(posedge rst, negedge rd)
-        if (rst)
-            en_rd <= 1'b0;
-        else if (en_off)
-            en_rd <= 1'b0;
-        else 
-            en_rd <= 1'b1;
-        
-    
-    always @(posedge clk, posedge rst)
-        if (rst)
-            en_off <= 1'b0;
-        else if (en_rd)
-            en_off <= 1'b1;
-        else
-            en_off <= 1'b0;
-            
-    assign en = en_rd ? (en_off ? 1'b0: 1'b1): 1'b0;
+module decoder(input clk, rst, input [7:0] data_rec, output [1:0] select);
+
+assign select = 2'b00;
+
 endmodule
