@@ -6,12 +6,12 @@ count = 0
 brate = 230400
 url = 'ftdi://ftdi:232:AB0JNVIE/1'
 port = pyftdi.serialext.serial_for_url(url,
-                                    baudrate=brate,
-                                    bytesize=8,
-                                    stopbits=1,
-                                    parity='N',
-                                    xonxoff=False,
-                                    rtscts=False)
+                                       baudrate=brate,
+                                       bytesize=8,
+                                       stopbits=1,
+                                       parity='N',
+                                       xonxoff=False,
+                                       rtscts=False)
 
 
 def cls():
@@ -28,6 +28,7 @@ def main_menu():
     print("||  (4) - turn current off       ||")
     print("||  (0) Exit                     ||")
     return int(input())
+
 
 def match_set(choice: int):
     if choice == 1:
@@ -53,7 +54,7 @@ def match_set(choice: int):
         return True
 
 
-def choice1 ():
+def choice1():
     state = True
     while state:
         cls()
@@ -83,6 +84,8 @@ def choice1 ():
             port.write(b)
         else:
             state = False
+
+
 def choice2():
     cls()
     print("============== amplitude ==================")
@@ -92,6 +95,7 @@ def choice2():
     print("-", b)
     port.write(b)
 
+
 def choice3():
     cls()
     print("============== frequency ==================")
@@ -100,6 +104,7 @@ def choice3():
     b = bytes([64 + ex])
     print("-", b)
     port.write(b)
+
 
 def choice4():
     cls()
@@ -119,48 +124,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# Open a serial port on the second FTDI device interface (IF/2) @ 3Mbaud
-
-#115200
-#9600
-#230400
-#shockley
-#url  = 'ftdi://ftdi:232:AQ00RVQC/1'
-#UBUNTU at home
-# Send bytes
-# print("Transmition at", brate)
-'''
-cb = 0b00000000
-cbs = []
-for i in range(2 ** 8 - 1):
-	cbs.append(cb)
-	cb += 1
-b = bytes(cbs)
-'''
-# b = bytes([0b10000010])
-#b = bytes([0x33, 0x35, 0x92, 0x32, 0x4c, 0x31, 0x36, 0x35, 0x37, 0x32, 0x4c, 0x31, 0x36, 0x35, 0x37, 0x32, 0x4c, 0x31, 0x36, 0x35, 0x37, 0x80, 0xd2])
-# print("-", b)
-# port.write(b)
-#for line in lines:
-#	x = chr(int(line, 16))
-#	port.write(x)
-#	count += 1
-#	print(count, '-', line, x)
-
-#line = 'c5'
-#x = chr(int(line, 16))
-#port.write(x)
-#print('-', line, x)
-'''
-# Receive bytes
-nb = 8
-print("Receiving at", brate)
-print(nb, "bytes")
-data = port.read(nb)
-print('-', data)
-#
-'''
-=======
->>>>>>> 7fd19e1 (Fin)
