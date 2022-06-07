@@ -6,7 +6,6 @@ def generate_sin():
     file = open ("sin.mem", 'w')
     x = 2 * math.pi / SAMPLES
     for i in range (SAMPLES):
-        print(f'[{i+1}] {i*x}')
         file.write(f'{round(math.sin(i*x) * 124) + 124:0{2}x}' + '\n')
     file.close()
 def generate_exponential():
