@@ -19,31 +19,31 @@ module master_axi #(parameter deep = 16, nb = $clog2(deep)) (input clk, rst,
     output logic [1:0] select
     );
 
-//deklaracja stan�w     
+//deklaracja stanów     
 typedef enum {readstatus, waitstatus, read, waitread, command, write, waitwrite, waitresp} states_e;
 states_e st, nst;
-//znacznik kierunku transmisji "1" - odbi�r, "0" - nadawanie
+//znacznik kierunku transmisji "1" - odbiór, "0" - nadawanie
 logic rec_trn;
 //znacznik komendy "1" - komenda, "0" - dane
 logic cmdm;
-//liczba danych do przyj?cia/wys?ania; z komend StartFrameIn, StartFrameOut
+//liczba danych do przyjęcia/wysłania; z komend StartFrameIn, StartFrameOut
 logic [5:0] maxd;
-//licznik adresu pami?ci
+//licznik adresu pamięci
 logic [nb-1:0] maddr;
 
-//znacznik obeno?ci danych w kolejce wej?ciowej
+//znacznik obeności danych w kolejce wejściowej
 wire rfifo_valid = ((st == waitstatus) & rvld) ? rdata[0] : 1'b0;
-//znacznik zape?nienia kolejki wyj?ciowej
+//znacznik zapełnienia kolejki wyjściowej
 wire tfifo_full = ((st == waitstatus) & rvld) ? rdata[3] : 1'b0;
 
-//rejestr stan�w
+//rejestr stanów
 always @(posedge clk, posedge rst)
     if(rst)
         st <= readstatus;
     else
         st <= nst;
 
-//logika stanu nast?pnego        
+//logika stanu następnego        
 always @* begin
     nst = readstatus;
     case(st)
@@ -66,24 +66,32 @@ always @(posedge clk)   //, posedge rst)
     if(rst) begin
         {rec_trn, cmdm} <= 2'b11;
         maxd <= 6'b0;
+        select <= 2'b0;
     end 
     else if(st == command) begin
         {rec_trn, cmdm} <= 2'b11;
         maxd <= rdata[5:0];
+        select <= 2'b0;
         case(rdata[7:6])
-            2'b10: {cmdm,select} <= {(rdata[5:0] == 6'b0) ? 1'b1 : 1'b0, rdata[1:0]};
-            2'b11: rec_trn <= 1'b0;
+            2'b10: begin
+                cmdm <= (rdata[5:0] == 6'b0) ? 1'b1 : 1'b0;
+                select <= rdata[1:0];
+            end
+            2'b11: begin
+                rec_trn <= 1'b0;
+            end
         endcase
-    end else
-        if (st == waitresp & maddr == maxd)
-            {rec_trn, cmdm} <= 2'b11;
+    end
+    else if (st == waitresp & maddr == maxd) begin
+        {rec_trn, cmdm} <= 2'b11;
+    end
         
-//memry address
-//warunek ikrementacji adrresu w czasie odbioru
+//memory address
+//warunek inkrementacji addresu w czasie odbioru
 wire incar = ((st == waitread) & ~cmdm & rvld & rec_trn & (maddr < maxd));
-//warunek ikrementacji adrresu w czasie wysy?ania 
+//warunek inkrementacji addresu w czasie wysyłania 
 wire incat = ((st == waitwrite) & cmdm & wrdy & ~rec_trn & (maddr < maxd));
-//w czasie nadawania adres musi byc o 1 wi?kszydata_rec
+//w czasie nadawania adres musi byc o 1 większy
 assign mem_addr = rec_trn ? maddr : (maddr + 1);
 always @(posedge clk)   //, posedge rst)
     if(rst)

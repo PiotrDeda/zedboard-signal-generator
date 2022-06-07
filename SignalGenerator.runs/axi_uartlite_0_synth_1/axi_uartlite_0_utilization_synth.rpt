@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Tue May 24 18:23:46 2022
+| Date         : Tue Jun  7 16:20:46 2022
 | Host         : stud209-5 running 64-bit Ubuntu 18.04.3 LTS
 | Command      : report_utilization -file axi_uartlite_0_utilization_synth.rpt -pb axi_uartlite_0_utilization_synth.pb
 | Design       : axi_uartlite_0
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  108 |     0 |     53200 |  0.20 |
-|   LUT as Logic             |   90 |     0 |     53200 |  0.17 |
+| Slice LUTs*                |   99 |     0 |     53200 |  0.19 |
+|   LUT as Logic             |   81 |     0 |     53200 |  0.15 |
 |   LUT as Memory            |   18 |     0 |     17400 |  0.10 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   18 |     0 |           |       |
-| Slice Registers            |  114 |     0 |    106400 |  0.11 |
-|   Register as Flip Flop    |  114 |     0 |    106400 |  0.11 |
+| Slice Registers            |  109 |     0 |    106400 |  0.10 |
+|   Register as Flip Flop    |  109 |     0 |    106400 |  0.10 |
 |   Register as Latch        |    0 |     0 |    106400 |  0.00 |
 | F7 Muxes                   |    1 |     0 |     26600 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     13300 |  0.00 |
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 18    |          Yes |         Set |            - |
-| 96    |          Yes |       Reset |            - |
+| 91    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,14 +148,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   96 |        Flop & Latch |
-| LUT6     |   34 |                 LUT |
-| LUT4     |   27 |                 LUT |
-| LUT5     |   23 |                 LUT |
+| FDRE     |   91 |        Flop & Latch |
+| LUT6     |   26 |                 LUT |
+| LUT4     |   26 |                 LUT |
+| LUT5     |   25 |                 LUT |
 | SRL16E   |   18 |  Distributed Memory |
 | FDSE     |   18 |        Flop & Latch |
 | LUT2     |   14 |                 LUT |
-| LUT3     |   11 |                 LUT |
+| LUT3     |    9 |                 LUT |
 | MUXF7    |    1 |               MuxFx |
 | LUT1     |    1 |                 LUT |
 +----------+------+---------------------+

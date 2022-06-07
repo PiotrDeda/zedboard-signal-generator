@@ -39,11 +39,11 @@ wire [7:0] data_tr, data_rec;
 wire [nb-1:0] addr;
   
 
-//IP-core Xilinx UART z AXI4-Lite
+// IP-core Xilinx UART z AXI4-Lite
 axi_uartlite_0 slave_axi (
-  .s_axi_aclk(clk),        // input wire s_axi_aclk
-  .s_axi_aresetn(~rst),  // input wire s_axi_aresetn
-  .interrupt(),          // output wire interrupt
+  .s_axi_aclk(clk),               // input wire s_axi_aclk
+  .s_axi_aresetn(~rst),           // input wire s_axi_aresetn
+  .interrupt(),                   // output wire interrupt
   
   .s_axi_awaddr(s_axi_awaddr),    // input wire [3 : 0] s_axi_awaddr
   .s_axi_awvalid(s_axi_awvalid),  // input wire s_axi_awvalid
@@ -68,33 +68,36 @@ axi_uartlite_0 slave_axi (
   .s_axi_rready(s_axi_rready),    // input wire s_axi_rready
   
   .rx(rx),                        // input wire rx
-  .tx(tx)                        // output wire tx
+  .tx(tx)                         // output wire tx
 );
 
-//master AXI4-Lite
+// master AXI4-Lite
 master_axi #(.deep(deep)) master (.clk(clk), .rst(rst),
-.awadr(s_axi_awaddr), .awvld(s_axi_awvalid), .awrdy(s_axi_awready), //AW channel
-.wdata(s_axi_wdata), .wvld(s_axi_wvalid), .wrdy(s_axi_wready), //W before
-.bresp(s_axi_bresp), .bvld(s_axi_bvalid), .brdy(s_axi_bready), 
-.aradr(s_axi_araddr), .arvld(s_axi_arvalid), .arrdy(s_axi_arready),  //AR channel
-.rdata(s_axi_rdata), .rvld(s_axi_rvalid), .rrdy(s_axi_rready), 
+.awadr(s_axi_awaddr), .awvld(s_axi_awvalid), .awrdy(s_axi_awready),  // AW channel
+.wdata(s_axi_wdata), .wvld(s_axi_wvalid), .wrdy(s_axi_wready),       // W channel
+.bresp(s_axi_bresp), .bvld(s_axi_bvalid), .brdy(s_axi_bready),       // B channel
+.aradr(s_axi_araddr), .arvld(s_axi_arvalid), .arrdy(s_axi_arready),  // AR channel
+.rdata(s_axi_rdata), .rvld(s_axi_rvalid), .rrdy(s_axi_rready),       // R channel
 .data_rec(data_rec), .data_tr(data_tr), .mem_addr(addr), .wr(wr), .rd(rd),
 .select(select));
 
-
-//pamięć
+// pamięć z próbkami sygnałów
 memory #(.bits(bits)) storage (.clk(clkslow), .rst(rst), .select(select), .data(data));
 
-assign D1 = D0;
-
+// SPI do DA1
 spi #(.bits(bits)) spiToPmod (
     .clk(clk), .rst(rst), .en(en),
     .data2trans(data),
     .ss(SYNC), .sclk(SCLK), .mosi(D0)
 );
 
+// wolny zegar
 clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .clkslow(clkslow));
-        
+
+// wysyłanie sygnału na wszystkie kanały
+assign D1 = D0;
+
+// cykliczny sygnał enable   
 always @(posedge clk, posedge rst)
     if(rst)
         en <= 1'b0;
