@@ -6,23 +6,12 @@ count = 0
 brate = 230400
 url = 'ftdi://ftdi:232:AB0JNVIE/1'
 port = pyftdi.serialext.serial_for_url(url,
-                                       baudrate=brate,
-                                       bytesize=8,
-                                       stopbits=1,
-                                       parity='N',
-                                       xonxoff=False,
-                                       rtscts=False)
-def main():
-    is_running = True
-
-    while is_running:
-        choice = main_menu()
-        is_running = match_set(choice)
-    return 0
-
-
-if __name__ == '__main__':
-    main()
+                                    baudrate=brate,
+                                    bytesize=8,
+                                    stopbits=1,
+                                    parity='N',
+                                    xonxoff=False,
+                                    rtscts=False)
 
 
 def cls():
@@ -112,11 +101,19 @@ def choice3():
     print("-", b)
     port.write(b)
 
-def choice4():
-    cls()
-    b = bytes([0b00111100])
-    print("-", b)
-    port.write(b)
+def main():
+    is_running = True
+
+    while is_running:
+        choice = main_menu()
+        is_running = match_set(choice)
+    return 0
+
+
+if __name__ == '__main__':
+    main()
+
+
 # Open a serial port on the second FTDI device interface (IF/2) @ 3Mbaud
 
 #115200

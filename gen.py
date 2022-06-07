@@ -4,7 +4,7 @@ SAMPLES = 200
 
 def generate_sin():
     file = open ("sin.mem", 'w')
-    x = 2 * math.pi / SAMPLES
+    x = 2 * math.pi / SAMPLESzzzzz
     for i in range (SAMPLES):
         file.write(f'{round(math.sin(i*x) * 124) + 124:0{2}x}' + '\n')
     file.close()

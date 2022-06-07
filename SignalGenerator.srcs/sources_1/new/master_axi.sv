@@ -71,7 +71,7 @@ always @(posedge clk, posedge rst)
         select_temp <= 2'b0;
         en_gen_temp <= 1'b0;
         freq_temp <= 6'b0;
-        ampl_temp <= 6'b0;
+        ampl_temp <= 6'b11_1111;
     end
     else begin
         select_temp <= select;
@@ -86,6 +86,9 @@ always @(posedge clk, posedge rst) //
         {rec_trn, cmdm} <= 2'b11;
         maxd <= 6'b0;
         select <= 2'b0;
+        en_gen <= 1'b0;
+        freq <= 6'b0;
+        ampl <= 6'b11_1111;
     end 
     else if(st == command) begin
         {rec_trn, cmdm} <= 2'b11;
