@@ -70,14 +70,14 @@ always @(posedge clk, posedge rst)
     if(rst) begin
         select_temp <= 2'b0;
         en_gen_temp <= 1'b0;
-        freq_temp <= 6'b0;
+        freq_temp <= 6'b00_0001;
         ampl_temp <= 6'b11_1111;
     end
     else begin
         select_temp <= select;
         en_gen_temp <= en_gen;
-        freq_temp <= freq_temp;
-        ampl_temp <= ampl_temp;
+        freq_temp <= freq;
+        ampl_temp <= ampl;
     end
 
 //command decoder
@@ -87,7 +87,7 @@ always @(posedge clk, posedge rst) //
         maxd <= 6'b0;
         select <= 2'b0;
         en_gen <= 1'b0;
-        freq <= 6'b0;
+        freq <= 6'b00_0001;
         ampl <= 6'b11_1111;
     end 
     else if(st == command) begin

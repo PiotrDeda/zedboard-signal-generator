@@ -94,7 +94,7 @@ spi #(.bits(bits)) spiToPmod (
 );
 
 // wolny zegar
-clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .freq(freq), .clkslow(clkslow));
+clock_divider clkdiv (.clk(clk), .rst(rst), .freq(freq), .clkslow(clkslow));
 
 // wysyłanie sygnału na wszystkie kanały
 assign D1 = D0;

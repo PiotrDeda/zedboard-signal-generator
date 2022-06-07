@@ -97,9 +97,16 @@ def choice3():
     print("============== frequency ==================")
     print("||  Chose value [0, 63]")
     ex = int(input())
-    b = bytes([192 + ex])
+    b = bytes([64 + ex])
     print("-", b)
     port.write(b)
+
+def choice4():
+    cls()
+    b = bytes([0b00111100])
+    print("-", b)
+    port.write(b)
+
 
 def main():
     is_running = True
@@ -155,3 +162,5 @@ data = port.read(nb)
 print('-', data)
 #
 '''
+=======
+>>>>>>> 7fd19e1 (Fin)
