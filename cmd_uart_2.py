@@ -114,11 +114,16 @@ def choice4():
 
 
 def main():
-    is_running = True
+    try:
+        is_running = True
 
-    while is_running:
-        choice = main_menu()
-        is_running = match_set(choice)
+        while is_running:
+            choice = main_menu()
+            is_running = match_set(choice)
+    except Exception as e:
+        print(e)
+        os.system("pause")
+
     return 0
 
 
