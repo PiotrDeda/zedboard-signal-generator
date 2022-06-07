@@ -22,10 +22,9 @@
 
 module tb();
 
-logic clk, rst, rx, switch, SYNC, SCLK, D0, D1, tx;
-logic [7:0] leds;
+logic clk, rst, rx, SYNC, SCLK, D0, D1, tx;
 
-top uut (.clk(clk), .rst(rst), .rx(rx), .switch(switch), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1), .tx(tx), .leds(leds));
+top uut (.clk(clk), .rst(rst), .rx(rx), .SYNC(SYNC), .SCLK(SCLK), .D0(D0), .D1(D1), .tx(tx));
 
 initial
 begin

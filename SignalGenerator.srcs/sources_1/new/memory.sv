@@ -8,7 +8,7 @@
 // Module Name: memory
 //////////////////////////////////////////////////////////////////////////////////
 
-module memory #(parameter bits = 16, deep = 200) (input clk, rst, input [1:0] select, output logic [bits-1:0] data);
+module memory #(parameter bits = 16, deep = 200) (input clk, rst, [1:0] select, [5:0] ampl, output logic [bits-1:0] data);
 
 localparam nb = $clog2(deep);
 logic [nb-1:0] cnt;
@@ -35,12 +35,12 @@ always @(posedge clk, posedge rst)
 
 always @(posedge clk)
     if (select == 2'b00)
-        data <= mem_saw[cnt];
+        data <= mem_saw[cnt] * (ampl + 1) / 64;
     else if (select == 2'b01)
-        data <= mem_tri[cnt];
+        data <= mem_tri[cnt] * (ampl + 1) / 64;
     else if (select == 2'b10)
-        data <= mem_sin[cnt];
+        data <= mem_sin[cnt] * (ampl + 1) / 64;
     else
-        data <= mem_exp[cnt];
+        data <= mem_exp[cnt] * (ampl + 1) / 64;
 
 endmodule

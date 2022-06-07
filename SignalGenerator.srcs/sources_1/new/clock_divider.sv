@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module clock_divider #(parameter div = 50) (input clk, rst, output logic clkslow);
+module clock_divider #(parameter div = 50) (input clk, rst, [5:0] freq, output logic clkslow);
 
 localparam nb = $clog2(div);
 

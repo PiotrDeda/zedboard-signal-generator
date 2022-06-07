@@ -16,7 +16,8 @@ module master_axi #(parameter deep = 16, nb = $clog2(deep)) (input clk, rst,
     input [31:0] rdata, input rvld, output logic rrdy,
     output logic [7:0] data_rec, input [7:0] data_tr, output [nb-1:0] mem_addr,
     output logic wr, rd,
-    output logic [1:0] select
+    output logic [1:0] select, output logic en_gen,
+    output logic [5:0] freq, ampl
     );
 
 //deklaracja stanów     
@@ -30,6 +31,10 @@ logic cmdm;
 logic [5:0] maxd;
 //licznik adresu pamięci
 logic [nb-1:0] maddr;
+
+logic [2:0] select_temp;
+logic en_gen_temp;
+logic [5:0] freq_temp, ampl_temp;
 
 //znacznik obeności danych w kolejce wejściowej
 wire rfifo_valid = ((st == waitstatus) & rvld) ? rdata[0] : 1'b0;
@@ -53,7 +58,7 @@ always @* begin
             else
                 nst = tfifo_full ? readstatus : (rvld ? write : waitstatus);
         read: nst = waitread;
-        waitread: nst = rvld ? (rdata[7] ? command : readstatus) : waitread;
+        waitread: nst = rvld ? command : waitread;
         command: nst = readstatus;
         write: nst = waitwrite;
         waitwrite: nst = awrdy ? waitresp : waitwrite;
@@ -61,8 +66,22 @@ always @* begin
     endcase 
 end
 
+always @(posedge clk, posedge rst)
+    if(rst) begin
+        select_temp <= 2'b0;
+        en_gen_temp <= 1'b0;
+        freq_temp <= 6'b0;
+        ampl_temp <= 6'b0;
+    end
+    else begin
+        select_temp <= select;
+        en_gen_temp <= en_gen;
+        freq_temp <= freq_temp;
+        ampl_temp <= ampl_temp;
+    end
+
 //command decoder
-always @(posedge clk)   //, posedge rst)
+always @(posedge clk, posedge rst) //
     if(rst) begin
         {rec_trn, cmdm} <= 2'b11;
         maxd <= 6'b0;
@@ -71,15 +90,16 @@ always @(posedge clk)   //, posedge rst)
     else if(st == command) begin
         {rec_trn, cmdm} <= 2'b11;
         maxd <= rdata[5:0];
-        select <= 2'b0;
+        select <= select_temp;
+        en_gen <= en_gen_temp;
+        freq <= freq_temp;
+        ampl <= ampl_temp;
         case(rdata[7:6])
-            2'b10: begin
-                cmdm <= (rdata[5:0] == 6'b0) ? 1'b1 : 1'b0;
-                select <= rdata[1:0];
-            end
-            2'b11: begin
-                rec_trn <= 1'b0;
-            end
+            2'b10: {en_gen, select} <= {1'b1, rdata[1:0]};
+            2'b00: en_gen <= 1'b0;
+            2'b01: freq <= rdata[5:0];
+            2'b11: ampl <= rdata[5:0];
+            //2'b11: rec_trn <= 1'b0;
         endcase
     end
     else if (st == waitresp & maddr == maxd) begin
@@ -93,7 +113,7 @@ wire incar = ((st == waitread) & ~cmdm & rvld & rec_trn & (maddr < maxd));
 wire incat = ((st == waitwrite) & cmdm & wrdy & ~rec_trn & (maddr < maxd));
 //w czasie nadawania adres musi byc o 1 większy
 assign mem_addr = rec_trn ? maddr : (maddr + 1);
-always @(posedge clk)   //, posedge rst)
+always @(posedge clk, posedge rst) //
     if(rst)
         maddr <= {nb{1'b0}};
     else if (incar | incat)
@@ -132,7 +152,7 @@ always @(posedge clk, posedge rst)
         data_rec <= rdata[7:0];
         
 //memory write
-always @(posedge clk)   //, posedge rst)
+always @(posedge clk, posedge rst) //
     if(rst)
         wr <= 1'b0;   
     else
@@ -178,7 +198,7 @@ always @(posedge clk, posedge rst)
      end
      
 //memory read
-always @(posedge clk)   //, posedge rst)
+always @(posedge clk, posedge rst) //
 	if(rst)  
 	   rd <= 1'b0;
 	else

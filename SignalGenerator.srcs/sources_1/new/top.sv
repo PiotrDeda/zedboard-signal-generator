@@ -26,6 +26,8 @@ localparam nb = $clog2(deep);
 logic en;
 logic [bits-1:0] data;
 logic [1:0] select;
+logic [5:0] freq;
+logic [5:0] ampl;
 
 wire [3:0] s_axi_awaddr;
 wire [31:0] s_axi_wdata;
@@ -79,10 +81,10 @@ master_axi #(.deep(deep)) master (.clk(clk), .rst(rst),
 .aradr(s_axi_araddr), .arvld(s_axi_arvalid), .arrdy(s_axi_arready),  // AR channel
 .rdata(s_axi_rdata), .rvld(s_axi_rvalid), .rrdy(s_axi_rready),       // R channel
 .data_rec(data_rec), .data_tr(data_tr), .mem_addr(addr), .wr(wr), .rd(rd),
-.select(select));
+.select(select), .en_gen(en_gen), .freq(freq), .ampl(ampl));
 
 // pamięć z próbkami sygnałów
-memory #(.bits(bits)) storage (.clk(clkslow), .rst(rst), .select(select), .data(data));
+memory #(.bits(bits)) storage (.clk(clkslow), .rst(rst), .select(select), .ampl(ampl), .data(data));
 
 // SPI do DA1
 spi #(.bits(bits)) spiToPmod (
@@ -92,7 +94,7 @@ spi #(.bits(bits)) spiToPmod (
 );
 
 // wolny zegar
-clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .clkslow(clkslow));
+clock_divider #(.div(250)) clkdiv (.clk(clk), .rst(rst), .freq(freq), .clkslow(clkslow));
 
 // wysyłanie sygnału na wszystkie kanały
 assign D1 = D0;
@@ -103,7 +105,7 @@ always @(posedge clk, posedge rst)
         en <= 1'b0;
     else if (en == 1)
         en <= 1'b0;
-    else if (clkslow == 1)
+    else if (clkslow == 1 && en_gen)
         en <= 1'b1;
 
 endmodule
