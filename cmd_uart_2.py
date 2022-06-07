@@ -5,14 +5,13 @@ import pyftdi.serialext
 count = 0
 brate = 230400
 url = 'ftdi://ftdi:232:AB0JNVIE/1'
-port = 0
-    # pyftdi.serialext.serial_for_url(url,
-    #                                    baudrate=brate,
-    #                                    bytesize=8,
-    #                                    stopbits=1,
-    #                                    parity='N',
-    #                                    xonxoff=False,
-    #                                    rtscts=False)
+port = pyftdi.serialext.serial_for_url(url,
+                                       baudrate=brate,
+                                       bytesize=8,
+                                       stopbits=1,
+                                       parity='N',
+                                       xonxoff=False,
+                                       rtscts=False)
 def main():
     is_running = True
 
@@ -50,14 +49,14 @@ def match_set(choice: int):
         choice2()
         os.system("pause")
         return True
-    # elif choice == 3:
-    #     choice3()
-    #     os.system("pause")
-    #     return True
-    # elif choice == 4:
-    #     choice4()
-    #     os.system("pause")
-    #     return True
+    elif choice == 3:
+        choice3()
+        os.system("pause")
+        return True
+    elif choice == 4:
+        choice4()
+        os.system("pause")
+        return True
     elif choice == 0:
         return False
     else:
@@ -100,11 +99,24 @@ def choice2():
     print("============== amplitude ==================")
     print("||  Chose value [0, 63]")
     ex = int(input())
-    b = bytes(192 + ex)
+    b = bytes([192 + ex])
     print("-", b)
     port.write(b)
 
+def choice3():
+    cls()
+    print("============== frequency ==================")
+    print("||  Chose value [0, 63]")
+    ex = int(input())
+    b = bytes([192 + ex])
+    print("-", b)
+    port.write(b)
 
+def choice4():
+    cls()
+    b = bytes([0b00111100])
+    print("-", b)
+    port.write(b)
 # Open a serial port on the second FTDI device interface (IF/2) @ 3Mbaud
 
 #115200
