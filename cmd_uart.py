@@ -1,10 +1,10 @@
-# Enable pyserial extensions
+url = '' #INSERT YOUR FTDI URL HERE
+
 import os
 import pyftdi.serialext
 
 count = 0
 brate = 230400
-url = 'ftdi://ftdi:232:AB0JNVIE/1'
 port = pyftdi.serialext.serial_for_url(url,
                                        baudrate=brate,
                                        bytesize=8,
