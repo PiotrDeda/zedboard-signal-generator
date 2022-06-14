@@ -2,6 +2,7 @@ url = '' #INSERT YOUR FTDI URL HERE
 
 import os
 import pyftdi.serialext
+import math
 
 count = 0
 brate = 230400
@@ -89,9 +90,13 @@ def choice1():
 def choice2():
     cls()
     print("============== amplitude ==================")
-    print("||  Chose value [0, 63]")
-    ex = int(input())
-    b = bytes([192 + ex])
+    print("||  Chose value [0.2, 3.3]V")
+    ex = float(input())
+    while ex < 0.2 or ex > 3.3:
+        print ("Wrong value")
+        ex = float(input())
+    v = math.ceil (ex / 0.05) - 3
+    b = bytes([192 + v])
     print("-", b)
     port.write(b)
 
@@ -99,9 +104,13 @@ def choice2():
 def choice3():
     cls()
     print("============== frequency ==================")
-    print("||  Chose value [0, 63]")
-    ex = int(input())
-    b = bytes([64 + ex])
+    print("||  Chose value [32, 2000]Hz")
+    ex = float(input())
+    while ex < 32 or ex > 2000:
+        print ("Wrong value")
+        ex = float(input())
+    v = math.ceil (2000 / ex)
+    b = bytes([64 + v])
     print("-", b)
     port.write(b)
 
