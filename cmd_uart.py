@@ -28,7 +28,11 @@ def main_menu():
     print("||  (3) - frequency              ||")
     print("||  (4) - turn current off       ||")
     print("||  (0) Exit                     ||")
-    return int(input())
+    try:
+        ex = int(input())
+    except:
+        ex = 5
+    return ex
 
 
 def match_set(choice: int):
@@ -66,7 +70,11 @@ def choice1():
         print("||  (3) sinusoidal")
         print("||  (4) exponential")
         print("||  (0) Exit ")
-        ex = int(input())
+        try:
+            ex = int(input())
+        except:
+            print("Insert int value")
+            ex = 0
         if ex == 1:
             b = bytes([0b10000000])
             print("-", b)
@@ -91,10 +99,18 @@ def choice2():
     cls()
     print("============== amplitude ==================")
     print("||  Chose value [0.2, 3.3]V")
-    ex = float(input())
+    try:
+        ex = float(input())
+    except:
+        print("Insert float value (ex. 1.0)")
+        ex = 0.0
     while ex < 0.2 or ex > 3.3:
         print ("Wrong value")
-        ex = float(input())
+        try:
+            ex = float(input())
+        except:
+            print("Insert float value (ex. 1.0)")
+            ex = 0.0
     v = math.ceil (ex / 0.05) - 3
     b = bytes([192 + v])
     print("-", b)
@@ -105,10 +121,18 @@ def choice3():
     cls()
     print("============== frequency ==================")
     print("||  Chose value [32, 2000]Hz")
-    ex = float(input())
+    try:
+        ex = float(input())
+    except:
+        print("Insert float value (ex. 1.0)")
+        ex = 0.0
     while ex < 32 or ex > 2000:
         print ("Wrong value")
-        ex = float(input())
+        try:
+            ex = float(input())
+        except:
+            print("Insert float value (ex. 1.0)")
+            ex = 0.0
     v = math.ceil (2000 / ex)
     b = bytes([64 + v])
     print("-", b)
@@ -132,7 +156,6 @@ def main():
     except Exception as e:
         print(e)
         os.system("pause")
-
     return 0
 
 
